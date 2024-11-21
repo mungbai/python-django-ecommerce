@@ -1,11 +1,8 @@
 
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -15,21 +12,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-olc_l4v9uimldmd)xjf0qcgbl#f3zyln(b##@b26_&2q_oo@_d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
 DEBUG = True
 
 #ALLOWED_HOSTS = ['mywebsite.com', 'www.mywebsite.com', 'localhost', '127.0.0.1', '*']
-
 ALLOWED_HOSTS = ['*']
 
-
 #CSRF_TRUSTED_ORIGINS = ['https://www.edenthought.com']
-
 
 # Set allowed cidr nets
 
 #ALLOWED_CIDR_NETS = ['172.17.0.0/16']
-
 
 # Application definition
 
@@ -231,6 +223,29 @@ DATABASES = {
 
 }
 '''
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'INFO',  # 设置最低日志级别为 INFO
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],  # 日志输出到控制台
+            'level': 'INFO',         # 设置最低日志级别为 INFO
+            'propagate': True,
+        },
+        '': {  # Root logger，捕获你代码中的日志
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
 
 
 
